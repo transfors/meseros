@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-import portada from '../imagenes/portada.png';
+import React from 'react';
+import { Link } from 'react-router-dom';
+// import portada from '../imagenes/portada.png';
 
 
 const Header = () => {
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+    
   return (
     <>
     <header>
-      <img src={portada} className="portada w-100 vh-100" alt="portada restaurante" />
+      {/* <img src={portada} className="w-100 vh-100" alt="portada restaurante" /> */}
       <nav className="navbar bg-dark fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand text-light" href="#">Restaurant First</a>
@@ -28,34 +23,15 @@ const Header = () => {
         <div className="offcanvas-body">
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <Link className="nav-link active" aria-current="page" to="/">Mesas</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Menu</a>
+              <Link className="nav-link" to="/menu">Menu</Link>
             </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mesas
-              </a>
-              <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Mesa 1</a></li>
-                <li><a className="dropdown-item" href="#">Mesa 2</a></li>
-                <li><a className="dropdown-item" href="#">Mesa 3</a></li>
-                <li><a className="dropdown-item" href="#">Mesa 4</a></li>                        
-              </ul>
+            <li className="nav-item">
+              <Link className="nav-link" to="/ticket">Ticket</Link>
             </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Menú
-              </a>
-            <ul className="dropdown-menu">
-              <li><a className="dropdown-item" href="#">Menú 1</a></li>
-              <li><a className="dropdown-item" href="#">Menú 2</a></li>
-              <li><a className="dropdown-item" href="#">Menú 3</a></li>
-              <li><a className="dropdown-item" href="#">Menú 4</a></li>                        
-            </ul>
-          </li>
-        </ul>
+          </ul>
         <form className="d-flex mt-3" role="search">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
           <button className="btn btn-outline-success" type="submit">Search</button>
@@ -64,11 +40,7 @@ const Header = () => {
         </div>
         </div>
       </nav>
-    </header>
-   
-    <footer className="fixed-botton bg-dark pb-3 text-light text-center pt-3">         
-        <p>(c) 2024 Meseros.com - Todos los derechos reservados.</p>             
-    </footer>
+    </header>   
     </>
   );
 };

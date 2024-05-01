@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import './Menu.css'
 
 import axios from 'axios';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import app from '../utils/firebaseConfig';
-
-
 
 // Inicializar Firestore
 const db = getFirestore(app);
@@ -83,9 +82,13 @@ function Menu() {
             {item.strDrink && <p><strong>Nombre:</strong> {item.strDrink}</p>}
             {item.strCategory && <p><strong>Categoría:</strong> {item.strCategory}</p>}
             {item.strArea && <p className="area"><strong>Área:</strong> {item.strArea}</p>}
-            {item.strDrinkThumb && <img src={item.strDrinkThumb} alt={item.strDrink} className="menu-item-img" />}
-            {item.strMealThumb && <img src={item.strMealThumb} alt={item.strMeal} className="menu-item-img" />}
-            {item.price && <p><strong>Precio:</strong> ${item.price}</p>}
+            
+            {item.strDrinkThumb && <Link to="/ticket"> <img src={item.strDrinkThumb} alt={item.strDrink} className="menu-item-img" /> </Link>}
+                        
+            {item.strMealThumb && <Link to="/ticket"> <img src={item.strMealThumb} alt={item.strMeal} className="menu-item-img" /> </Link> }
+
+            {item.price && <p><strong>Precio:</strong> $ {item.price}</p>}
+            
           </li>
         ))}
       </ul>
