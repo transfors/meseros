@@ -2,6 +2,7 @@ import React from 'react';
 import Mesa from './Mesa';
 import { Link } from 'react-router-dom'; 
 import "./Mesas.css"
+import CartDesplegable from './CartDesplegable';
 
 const Mesas = () => {
   // Array de números de mesa
@@ -11,9 +12,18 @@ const Mesas = () => {
     <> 
       <div className="mesas-container">
         {numerosDeMesas.map((numeroMesa, index) => (
+          <>
+          <div>
           <Link key={index} to={`/menu`}>
             <Mesa numero={numeroMesa} />
           </Link>
+          
+          <CartDesplegable />
+          </div>
+      
+          
+          
+          </>
         ))}
       </div>
     </>

@@ -5,6 +5,7 @@ import Footer from './pages/Footer';
 import Menu from './components/Menu';
 import Mesas from './components/Mesas';
 import {Ticket} from './components/Ticket';
+import CartDesplegable from './components/CartDesplegable'
 
 
 
